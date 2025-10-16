@@ -1,0 +1,445 @@
+/* Стили для слайдера опыта работы */
+.experience-slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 2.5rem; /* Отступы для кнопок */
+    box-sizing: border-box;
+}
+
+.experience-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    cursor: grab;
+    pointer-events: auto;
+}
+
+.experience-slider:active {
+    cursor: grabbing; /* Показывает, что элемент в процессе перетаскивания */
+}
+
+
+.experience-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center; /* Центрируем карточку внутри слайда */
+    padding: 0 0.5rem; /* Небольшой отступ для выравнивания */
+    box-sizing: border-box;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.7); /* Темный полупрозрачный фон */
+    color: #d8b4fe; /* Цвет текста */
+    border: 2px solid #a78bfa; /* Цвет рамки */
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Круглая кнопка */
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-sizing: border-box; /* Добавляем */
+    text-align: center; /* Добавляем */
+    padding: 0;
+    text-align: center
+}
+
+.slider-btn::before,
+.slider-btn::after {
+    /* Если используются псевдоэлементы для стрелок */
+    display: block; /* Или inline-block, в зависимости от необходимости */
+    align-self: center; /* Центрируем псевдоэлемент по центру */
+    justify-self: center; /* Центрируем псевдоэлемент по центру */
+}
+
+.slider-btn:hover {
+    background: rgba(167, 139, 250, 0.3); /* Светлее при наведении */
+    color: #e9d5ff;
+}
+
+.slider-btn-left {
+    left: 0;
+}
+
+.slider-btn-right {
+    right: 0;
+}
+
+/* --- Измененные стили для карточки опыта (в виде игральной карты, сохраняя цвета) --- */
+.experience-card {
+    /* Сохраняем существующие цвета */
+    background-color: #0a0a0a; /* Темный фон */
+    border: 1px solid #a78bfa; /* Фиолетовая граница */
+    box-shadow: 0 0 8px rgba(167, 139, 250, 0.3); /* Фиолетовая тень */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    /* Изменяем форму */
+    border-radius: 16px; /* Увеличиваем скругление углов */
+    overflow: hidden; /* Обрезаем элементы за границами */
+    max-width: 400px; /* Устанавливаем ширину */
+    width: 100%;
+    min-height: 400px; /* Устанавливаем высоту для пропорции карты */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.5); /* Увеличиваем тень при наведении */
+}
+
+.experience-card-header {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #a78bfa; /* Сохраняем границу */
+    background-color: #1e1e2e; /* Сохраняем фон заголовка */
+    z-index: 2; /* Поверх ::before если будет */
+    position: relative;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 1rem;
+    border-radius: 4px; /* Сохраняем скругление логотипа */
+    border: 1px solid #a78bfa; /* Граница для логотипа */
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2; /* Поверх ::before */
+    position: relative;
+    gap: 0.25rem;
+}
+
+.company-name {
+    color: #d8b4fe; /* Сохраняем цвет названия */
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold; /* Добавляем жирность для выделения */
+}
+
+.job-title {
+    /* Новый стиль для должности */
+    color: #c4b5fd; /* Цвет, например, светло-фиолетовый */
+    margin: 0; /* Убираем стандартный внешний отступ */
+    font-size: 1rem; /* Размер шрифта для должности */
+    font-style: italic; /* Можно сделать курсивом */
+    font-weight: normal; /* Обычный вес шрифта */
+}
+
+.employment-period {
+    color: #e9d5ff; /* Сохраняем цвет периода */
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.experience-card-body {
+    padding: 1.5rem 1.5rem 1rem 1.5rem; /* Дополнительный отступ снизу для кнопки */
+    z-index: 2; /* Поверх ::before */
+    position: relative;
+    flex-grow: 1; /* Растягиваем внутреннюю часть */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.experience-description {
+    margin-bottom: 1rem; /* Отступ снизу от описания к тегам/цитате */
+    flex-grow: 1; /* Растягиваем описание */
+    /* Добавляем отступ сверху, чтобы текст не прилегал к заголовку карточки */
+    margin-top: 0.5rem;
+}
+
+
+/* --- Новые стили для тегов на карточке --- */
+.card-tags-section {
+    display: flex; /* Используем flex для управления категориями */
+    flex-direction: column;
+    gap: 0.25rem; /* Небольшой отступ между категориями тегов */
+    margin-bottom: 1rem; /* Отступ перед кнопкой */
+    flex-shrink: 0; /* Не сжимаем блок с тегами */
+}
+
+/* Стиль для отдельной категории тегов на карточке */
+.card-tag-category {
+    /* margin-bottom: 1rem; /* Не нужен, так как gap у родителя */
+    display: flex;
+    flex-wrap: wrap; /* Перенос тегов внутри категории */
+    gap: 0.25rem; /* Отступ между тегами внутри категории */
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem; /* Уменьшенный паддинг */
+    background-color: rgba(167, 139, 250, 0.15); /* Более прозрачный фон */
+    color: #c4b5fd; /* Более светлый цвет текста */
+    border: 1px solid rgba(167, 139, 250, 0.3); /* Более прозрачная граница */
+    border-radius: 0.75rem; /* Сlightly less rounded */
+    font-size: 0.75rem; /* Уменьшенный размер шрифта */
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.card-tag:hover {
+    background-color: rgba(167, 139, 250, 0.25); /* Немного более насыщенный фон при наведении */
+    color: #e9d5ff; /* Цвет текста при наведении */
+}
+
+.current-exp-tag {
+    display: inline-block;
+    /* position: absolute; /* Если нужно фиксированное позиционирование */
+    /* top: 10px;          /* Например, в угол */
+    /* right: 10px;        /* Например, в угол */
+    margin-top: 0.25rem; /* Отступ сверху от периода работы */
+    padding: 0.1rem 0.4rem;
+    background-color: #109468; /* Зеленый цвет для обозначения "актуальности/активности" */
+    color: #ffffff; /* Белый цвет текста */
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 0.5rem; /* Скругление краев */
+    align-self: flex-start; /* Выравнивание по левому краю внутри flex-контейнера */
+    /* cursor: default; */
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2); /* Тонкая тень для выделения */
+}
+
+.current-exp-tag-2 {
+    display: inline-block;
+    /* position: absolute; /* Если нужно фиксированное позиционирование */
+    /* top: 10px;          /* Например, в угол */
+    /* right: 10px;        /* Например, в угол */
+    margin-top: 0.25rem; /* Отступ сверху от периода работы */
+    padding: 0.1rem 0.4rem;
+    background-color: #c85f14; /* Зеленый цвет для обозначения "актуальности/активности" */
+    color: #ffffff; /* Белый цвет текста */
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 0.5rem; /* Скругление краев */
+    align-self: flex-start; /* Выравнивание по левому краю внутри flex-контейнера */
+    /* cursor: default; */
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2); /* Тонкая тень для выделения */
+}
+
+.current-exp-tag-3 {
+    display: inline-block;
+    /* position: absolute; /* Если нужно фиксированное позиционирование */
+    /* top: 10px;          /* Например, в угол */
+    /* right: 10px;        /* Например, в угол */
+    margin-top: 0.25rem; /* Отступ сверху от периода работы */
+    padding: 0.1rem 0.4rem;
+    background-color: #1227af; /* Зеленый цвет для обозначения "актуальности/активности" */
+    color: #ffffff; /* Белый цвет текста */
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 0.5rem; /* Скругление краев */
+    align-self: flex-start; /* Выравнивание по левому краю внутри flex-контейнера */
+    /* cursor: default; */
+    box-shadow: 0 2px 4px rgba(22, 26, 249, 0.2); /* Тонкая тень для выделения */
+}
+
+.btn-outline-custom {
+    color: #d8b4fe; /* Сохраняем цвет кнопки */
+    border-color: #d8b4fe;
+    background-color: transparent;
+    align-self: center; /* Центрируем кнопку по горизонтали */
+    margin-top: auto; /* Прижимаем к низу карточки */
+}
+
+.btn-outline-custom:hover {
+    color: #0a0a0a; /* Сохраняем цвет текста при наведении */
+    background-color: #d8b4fe; /* Сохраняем цвет фона при наведении */
+    border-color: #d8b4fe;
+}
+
+/* Стили для модального окна (остаются прежними) */
+.experience-modal .modal-content {
+    background-color: #0a0a0a;
+    color: #e9d5ff;
+    border: 1px solid #a78bfa;
+    max-height: 90vh; /* Максимальная высота 90% от высоты вьюпорта */
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-modal .modal-header {
+    border-bottom: 1px solid #a78bfa;
+    flex-shrink: 0; /* Заголовок не должен сжиматься */
+}
+
+.experience-modal .modal-title {
+    color: #d8b4fe;
+}
+
+.experience-modal .modal-body {
+    /* ... остальные стили ... */
+    /* padding: ... ; /* Оставляем существующий отступ */
+    flex: 1 1 auto; /* Тело может расти и сжиматься */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку, если контент длинный */
+    max-height: 70vh; /* Устанавливаем максимальную высоту для области прокрутки */
+    /* Опционально: добавить отступ снизу, чтобы контент не прилипал к границе прокрутки */
+    padding-bottom: 1rem;
+}
+
+.experience-modal .modal-body p {
+    /* Добавим отступ между абзацами в модальном окне */
+    margin-bottom: 0.75rem;
+    color: #e5e5e5;
+}
+
+/* --- Новые стили для заголовков в описании модального окна --- */
+.experience-modal .modal-body p strong {
+    color: #c4b5fd; /* Светло-фиолетовый цвет для заголовков */
+    font-weight: bold; /* Убедимся, что начертание жирное */
+    /* border-bottom: 1px dashed #a78bfa; /* Опционально: добавить пунктирную линию */
+    /* padding-bottom: 0.1rem; /* Опционально: отступ под пунктирной линией */
+}
+
+.experience-modal .btn-close {
+    filter: invert(1);
+}
+
+.modal-tags-section {
+    margin-top: 1.5rem; /* Отступ сверху от предыдущего содержимого */
+    padding-top: 1rem; /* Дополнительный отступ сверху */
+    border-top: 1px solid #a78bfa; /* Легкая граница сверху */
+}
+
+/* Стиль для отдельной категории тегов */
+.tag-category {
+    margin-bottom: 1rem; /* Отступ между категориями */
+}
+
+/* Стиль для заголовка категории */
+.tag-category-title {
+    color: #d8b4fe; /* Цвет заголовка категории */
+    margin-bottom: 0.5rem; /* Отступ снизу от заголовка к тегам */
+    font-size: 0.9rem; /* Размер шрифта заголовка */
+    font-weight: bold; /* Жирное начертание */
+    text-transform: uppercase; /* Заглавные буквы (по желанию) */
+    letter-spacing: 0.5px; /* Расстояние между буквами (по желанию) */
+}
+
+/* Стиль для списка тегов внутри категории */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap; /* Перенос тегов на новую строку при необходимости */
+    gap: 0.5rem; /* Отступ между тегами */
+}
+
+/* Стили для отдельного тега ("таблетки") (остаются без изменений, но можно скорректировать) */
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(167, 139, 250, 0.2); /* Фиолетовый с низкой непрозрачностью */
+    color: #d8b4fe; /* Цвет текста тега */
+    border: 1px solid #a78bfa; /* Граница тега */
+    border-radius: 1rem; /* Скругление краев ("таблетка") */
+    font-size: 0.875rem; /* Размер шрифта тега */
+    line-height: 1; /* Высота строки */
+    text-align: center;
+    white-space: nowrap; /* Не переносим текст внутри тега */
+    cursor: default; /* Курсор по умолчанию */
+}
+
+.tag:hover {
+    background-color: rgba(167, 139, 250, 0.3); /* Немного более насыщенный фон при наведении */
+    color: #e9d5ff; /* Цвет текста при наведении */
+}
+
+.experience-modal .modal-body ul,
+.experience-modal .modal-body ol {
+    color: #e9d5ff; /* Цвет текста списка */
+    padding-left: 1.5rem; /* Отступ слева для вложенных элементов */
+    margin-bottom: 1rem; /* Отступ снизу перед следующим элементом */
+}
+
+.experience-modal .modal-body ul {
+    list-style-type: disc; /* Маркер для неупорядоченного списка */
+}
+
+.experience-modal .modal-body ol {
+    list-style-type: decimal; /* Нумерация для упорядоченного списка */
+}
+
+.experience-modal .modal-body li {
+    margin-bottom: 0.25rem; /* Отступ между элементами списка */
+    line-height: 1.5; /* Высота строки для лучшей читаемости */
+}
+
+.experience-modal .modal-body li::marker {
+    color: #a78bfa; /* Цвет маркера или цифры */
+}
+
+/* --- Стили для цитаты внутри модального окна --- */
+.quote-block-modal {
+    margin: 1.5rem 0; /* Отступ сверху и снизу от другого контента */
+    padding: 1rem; /* Внутренний отступ */
+    border-left: 3px solid #a78bfa; /* Левая граница */
+    background-color: rgba(167, 139, 250, 0.05); /* Очень легкий фиолетовый фон */
+    border-radius: 0 8px 8px 0; /* Скругление углов, кроме левого верхнего */
+    position: relative;
+}
+
+.quote-text-modal {
+    font-style: italic;
+    color: #e9d5ff; /* Цвет текста цитаты */
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    /* Добавляем отступ слева, чтобы текст не прилегал к кавычке */
+    padding-left: 1rem; /* Можно подобрать значение по вкусу: 0.5rem, 1rem, 1.5rem */
+    /* text-shadow: 0 0 4px rgba(233, 213, 255, 0.3); /* Текстовая тень (опционально) */
+}
+
+.quote-text-modal::before,
+.quote-text-modal::after {
+    font-size: 2rem; /* Меньше размер кавычек по сравнению с основной страницей */
+    color: #a78bfa; /* Цвет кавычек */
+    opacity: 0.5; /* Прозрачность кавычек */
+    position: absolute;
+    z-index: 1;
+}
+
+.quote-text-modal::before {
+    content: '"';
+    top: -10px;
+    left: -10px; /* Отступ от левого края */
+}
+
+.quote-text-modal::after {
+    content: '"';
+    bottom: -20px; /* Отступ от нижнего края */
+    right: -10px; /* Отступ от правого края */
+}
+
+.quote-author-modal {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem; /* Меньше размер шрифта автора */
+    color: #c4b5fd; /* Цвет текста автора */
+    margin-top: 0.5rem; /* Отступ сверху от цитаты до автора */
+    font-weight: bold;
+    padding-right: 1rem;
+}

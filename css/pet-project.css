@@ -1,0 +1,103 @@
+/* Стили для секции личных проектов */
+.pet-projects-container {
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+    gap: 1.5rem; /* Отступ между карточками */
+    justify-content: center; /* Центрируем карточки по горизонтали */
+    align-items: stretch; /* Выравниваем карточки по высоте */
+    width: 100%;
+}
+
+.pet-project-card {
+    background-color: #0a0a0a;
+    border: 2px solid #a78bfa; /* Фиолетовая граница */
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(167, 139, 250, 0.3); /* Фиолетовая тень */
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 370px; /* Увеличиваем ширину карточки */
+    min-height: 250px; /* Минимальная высота */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Необходимо для позиционирования дочерних элементов */
+    cursor: pointer;
+}
+
+
+.pet-project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+}
+
+.pet-project-header {
+    display: flex; /* Используем flex для расположения элементов */
+    align-items: center; /* Выравнивание по вертикали */
+    padding: 1rem;
+    border-bottom: 2px solid #a78bfa; /* Фиолетовая нижняя граница */
+    background-color: #1e1e2e;
+    position: relative; /* Необходимо для z-index */
+    z-index: 1; /* Устанавливаем z-index выше, чем у тега языка */
+}
+
+.pet-project-title {
+    color: #d8b4fe; /* Фиолетовый цвет заголовка */
+    margin: 0; /* Убираем стандартный отступ */
+    font-size: 1.1rem; /* Уменьшаем размер шрифта заголовка */
+    font-weight: bold;
+    flex-grow: 1; /* Занимает доступное пространство */
+    white-space: nowrap; /* Не переносим текст заголовка */
+    overflow: hidden; /* Обрезаем, если текст слишком длинный */
+    text-overflow: ellipsis; /* Добавляем троеточие, если текст обрезается */
+}
+
+.pet-project-content {
+    padding: 1rem; /* Уменьшаем внутренний отступ */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.pet-project-description {
+    color: #e9d5ff;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 0.9rem; /* Уменьшаем размер шрифта описания */
+}
+
+.pet-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.pet-project-tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem; /* Уменьшаем паддинг */
+    background-color: rgba(167, 139, 250, 0.2); /* Фиолетовый с низкой непрозрачностью */
+    color: #d8b4fe; /* Фиолетовый цвет текста */
+    border: 1px solid #a78bfa; /* Фиолетовая граница */
+    border-radius: 0.75rem; /* Скругление краев ("таблетка") */
+    font-size: 0.75rem; /* Уменьшаем размер шрифта тега */
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.pet-project-tag:hover {
+    background-color: rgba(167, 139, 250, 0.3); /* Немного более насыщенный фон при наведении */
+    color: #e9d5ff; /* Более светлый фиолетовый цвет текста при наведении */
+}
+
+.project-language-tag {
+    margin-left: 1rem; /* Добавляем отступ слева от заголовка */
+    padding: 0.15rem 0.5rem;
+    background-color: rgba(107, 114, 128, 0.3); /* Серый с низкой непрозрачностью */
+    color: #d1d5db; /* Светло-серый цвет текста */
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 0.5rem; /* Скругление краев */
+    align-self: center; /* Выравнивание по центру по высоте flex-контейнера */
+    flex-shrink: 0; /* Не сжимаем тег */
+}
